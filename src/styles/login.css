@@ -19,7 +19,7 @@ select {
 }
 
 .login-box {
-    background: #a8e1f3be;
+    background: linear-gradient(to right, #8FA9D6, #5F80BC);
     padding: 30px;
     width: 380px;
     border-radius: 10px;
