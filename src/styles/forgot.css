@@ -11,7 +11,7 @@
 }
 
 .forgot-p {
-    background: linear-gradient(to right, #8fa9d6d2, #5F80BC);
+    background: linear-gradient(to right, #8fa9d650, #5F80BC);
     padding: 30px;
     width: 380px;
     border-radius: 10px;
@@ -40,6 +40,8 @@
 
 .forgot-p h2 {
     text-align: center;
+    font-size: 40px;
+    color: white;
     font-family: cursive;
     margin-bottom: 18px;
 }
