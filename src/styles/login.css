@@ -71,19 +71,21 @@ input {
     color: red;
 }
 
-button {
-    font-family: cursive;
+.login-box button {
+    padding: 10px 20px;
+    margin: 10px;
     width: 100%;
-    padding: 10px;
-    background: white;
+    font-family: cursive;
     border: none;
-    color: black;
-    font-size: 16px;
     border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    color: #5F80BC;
     cursor: pointer;
 }
 
-button:hover {
-    background: #2892ee;
+.login-box button:hover {
+    background: transparent;
+    border: 1px solid white;
     color: white;
 }

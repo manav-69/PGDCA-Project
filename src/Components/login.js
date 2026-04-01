@@ -1,8 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/login.css";
 
 function Login() {
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        window.location.href = "/complaint";
+    }
+
+
     return (<>
+
 
         <div className="container">
             <div className="login-box">
@@ -11,11 +20,13 @@ function Login() {
                 alt="logo"
                 className="logo"
                 />
+
                 <h2>Login</h2>
 
-                <form>
+                <form onSubmit={handleLogin}>
 
                     <label>Login As</label>
+
                     <select required>
                         <option value="">Select Role</option>
                         <option value="student">Student</option>
@@ -25,12 +36,12 @@ function Login() {
 
 
                     <label>PRN No.</label>
-                    <input type="text" placeholder="Enter PRN Number" maxLength={10} required />
+                    <input type="number" placeholder="Enter PRN Number" maxLength={10} required />
 
                     <label>Password</label>
                     <input type="password" placeholder="Enter Password" maxLength={16} minLength={8} required />
 
-                    <a href="" className="forgot">Forgot Password?</a>
+                    <Link className="forgot" to="/forgot">Forgot Password?</Link>
 
                     <button type="submit">Login</button>
                 </form>

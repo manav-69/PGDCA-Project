@@ -29,6 +29,8 @@
     margin: 10px;
     border: none;
     border-radius: 5px;
+    font-family: cursive;
+    font-size: 16px;
     background: white;
     color: #5F80BC;
     cursor: pointer;

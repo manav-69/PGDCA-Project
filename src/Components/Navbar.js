@@ -3,18 +3,22 @@ import "../styles/navbar.css";
 import { Link } from "react-router-dom";
 
 
-function Navbar(){
-    return(<>
+function Navbar() {
+    return (<>
 
-    <nav className="navbar">
+        <nav className="navbar">
             <div className="navbar-right">
-                <h2>Complaint & Issue Management System</h2>
+                <h2 className="logo-text">
+                    <i className="fa-solid fa-clipboard-user"></i>
+                    Complaint Issue & Management System
+                </h2>
             </div>
-            
+
             <div className="navbar-left">
-                <Link to="/">About</Link>
+                <Link to="/">Home</Link>
+
                 <Link to="/login">
-                <button className="login-btn">Login</button>
+                    <button className="login-btn">Login</button>
                 </Link>
             </div>
         </nav>

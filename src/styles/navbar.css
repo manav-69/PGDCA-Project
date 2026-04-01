@@ -14,6 +14,12 @@
     font-size: 16px;
     font-family: cursive;
 }
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
 
 /*Left side Navbar*/
 
@@ -35,7 +41,7 @@
     text-decoration: overline;
 }
 
-.login-btn {
+/* .login-btn {
     font-family: cursive;
     padding: 6px 12px;
     background: white;
@@ -47,5 +53,20 @@
 
 .login-btn:hover {
     background: #0ee9b99c;
+    color: white;
+} */
+ .login-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    color: #5F80BC;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: transparent;
+    border: 1px solid white;
     color: white;
 }
