@@ -8,6 +8,7 @@ function Home() {
 
       {/* Hero Section */}
       <section className="hero">
+        
         <h1>Complaint & Issue Management System</h1>
         <p>Raise, Track and Resolve Issues Efficiently</p>
 

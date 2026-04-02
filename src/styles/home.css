@@ -6,17 +6,22 @@
 .hero {
     height: 80vh;
     background: linear-gradient(to right, #8FA9D6, #5F80BC);
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    background: url(https://msu-new-2023-ec2-ubuntu-unzip.s3.ap-south-1.amazonaws.com/asset/storage/slider/techo.jpg);
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 .hero h1 {
     font-size: 36px;
     margin-bottom: 10px;
+    color: white;
 }
 
 .hero p {
@@ -32,26 +37,26 @@
     font-family: cursive;
     font-size: 16px;
     background: white;
-    color: #5F80BC;
+    color: #070707;
     cursor: pointer;
 }
 
 .hero-buttons button:hover {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
+    background: burlywood;
+    border: 1px solid rgb(7, 7, 7);
+    color: rgb(8, 8, 8);
 }
 
 .hero-buttons .secondary {
-    background: transparent;
+    background: white;
     border: 1px solid white;
-    color: white;
+    color: rgb(8, 8, 8);
 }
 
 .hero-buttons .secondary:hover {
-    background: white;
-    color: #5F80BC;
-    border: 1px solid white;
+    background: burlywood;
+    color: #080808;
+    border: 1px solid rgb(3, 3, 3);
 }
 
 /* Features */

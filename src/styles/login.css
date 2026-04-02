@@ -19,11 +19,16 @@ select {
 }
 
 .login-box {
-    background: linear-gradient(to right, #8fa9d650, #5F80BC);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 15px;
     padding: 30px;
-    width: 380px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 320px;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo {
@@ -70,7 +75,7 @@ input {
 
 .forgot:hover {
     text-decoration: underline;
-    color: red;
+    color: blue;
 }
 
 .login-box button {
