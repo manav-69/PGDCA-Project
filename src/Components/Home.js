@@ -13,10 +13,12 @@ function Home() {
         <p>Raise, Track and Resolve Issues Efficiently</p>
 
         <div className="hero-buttons">
-            <Link to="/login">
+            <Link to="/login" style={{textDecoration:"none"}}>
             <button>Raise Complaint</button>
-            <button className="secondary">Track Complaint</button>
             </Link>
+            <Link to="/login" style={{textDecoration:"none"}}>
+            <button className="secondary">Track Complaint</button>
+            </Link> 
 
           
         </div>

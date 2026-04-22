@@ -1,0 +1,70 @@
+.status-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("https://msu-new-2023-ec2-ubuntu-unzip.s3.ap-south-1.amazonaws.com/asset/storage/slider/techo.jpg");
+  background-size: cover;
+}
+
+/* Box */
+.status-box {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  padding: 30px;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 12px;
+
+  color: white;
+  text-align: center;
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+th {
+  border-bottom: 1px solid white;
+}
+
+/* Status colors */
+.pending {
+  color: yellow;
+}
+
+.in-progress {
+  color: cyan;
+}
+
+.resolved {
+  color: lightgreen;
+}
+
+/* Button */
+button {
+  margin-top: 15px;
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

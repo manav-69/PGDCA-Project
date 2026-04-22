@@ -1,13 +1,26 @@
 import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { noop } from 'antd/es/_util/warning';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
 import Login from './Components/login';
 import Navbar from './Components/Navbar';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { noop } from 'antd/es/_util/warning';
+
 import Home from './Components/Home';
 import Forgot from "./Components/Forgot";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import Counter from './Components/Counter';
+// import Counter from './Components/Counter';
+
+//Student Components
+import StudentDashboard from "./Components/Studentdesk";
+import ComplaintForm from "./Components/StudentComplaint";
+import StatusPage from "./Components/StudentStatuscheck";
+import FeedbackPage from "./Components/StudentFeedback";
+
+//Admin Components
+import AdminDashboard from "./Components/Admindesk";
+import AdminStatus from "./Components/AdminStatus";
+import AdminFeedback from "./Components/AdminFeedback";
+import AdminComplaints from "./Components/AdminComplaint";
 
 function App() {
   return (
@@ -15,12 +28,24 @@ function App() {
       <Router>
         <Navbar />
         {/* <Login /> */}
-      
+
 
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/forgot' element={<Forgot />} />
+
+          {/* Student Routes */}
+          <Route path="/student" element={<StudentDashboard />} />
+          <Route path='/complaint' element={<ComplaintForm />} />
+          <Route path='/status' element={<StatusPage />} />
+          <Route path='/feedback' element={<FeedbackPage />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/status" element={<AdminStatus />} />
+          <Route path="/admin/feedback" element={<AdminFeedback />} />
+          <Route path="/admin/complaints" element={<AdminComplaints />} />
         </Routes>
 
       </Router>

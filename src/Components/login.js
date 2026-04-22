@@ -16,7 +16,13 @@ function Login() {
 
     dispatch(login({ role, userId }));
 
-    window.location.href = "/complaint";
+     if (role === "student") {
+    window.location.href = "/student";
+  } else if (role === "staff") {
+    window.location.href = "/admin";
+  } else if (role === "admin") {   // your HOD value
+    window.location.href = "/admin";
+  }
   };
 
   return (
@@ -109,3 +115,6 @@ function Login() {
 }
 
 export default Login;
+
+
+
