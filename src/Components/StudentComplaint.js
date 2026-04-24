@@ -1,18 +1,36 @@
 import React from "react";
-import "../styles/complaint.css";
+import { useState } from "react";
+import "../styles/s_complaint.css";
 import { useNavigate } from "react-router-dom";
 
-function ComplaintForm() {
+function ComplaintForm({ setPage }) {
 
   const navigate = useNavigate();
+  const [type, setType] = useState("");
+  const [branch, setBranch] = useState("");
+  const [desc, setDesc] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Complaint Submitted Successfully!");
+
+    const newComplaint = {
+      id: Date.now(),
+      type,
+      branch,
+      description: desc,
+      status: "Pending"
+    };
+
+    const oldData = JSON.parse(localStorage.getItem("complaints")) || [];
+    oldData.push(newComplaint);
+    localStorage.setItem("complaints", JSON.stringify(oldData));
+
+    alert("Complaint Submitted!");
   };
 
+
   return (
-    <div className="complaint-container">
+    <div className="inner-content">
 
       <div className="complaint-box">
 
@@ -22,7 +40,7 @@ function ComplaintForm() {
 
           {/* Complaint Type */}
           <label>Complaint Type</label>
-          <select required>
+          <select value={type} onChange={(e) => setType(e.target.value)} required>
             <option value="">Select Type</option>
             <option>Technical</option>
             <option>Hostel</option>
@@ -30,12 +48,12 @@ function ComplaintForm() {
             <option>Academic</option>
           </select>
 
-          {/* Department */}
-          <label>Department</label>
-          <select required>
-            <option value="">Select Department</option>
-            <option>IT</option>
-            <option>Computer</option>
+          {/* Branch */}
+          <label id="branch">Branch</label>
+          <select value={branch} onChange={(e) => setBranch(e.target.value)} required>
+            <option value="">Select Branch</option>
+            <option>MSc Applied Maths</option>
+            <option>PGDCA</option>
             <option>Mechanical</option>
             <option>Civil</option>
           </select>
@@ -43,10 +61,12 @@ function ComplaintForm() {
           {/* Description */}
           <label>Description</label>
           <textarea
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
             placeholder="Describe your issue..."
             rows="4"
             required
-          ></textarea>
+          />
 
           {/* Buttons */}
           <div className="btn-group">
@@ -56,7 +76,7 @@ function ComplaintForm() {
             <button
               type="button"
               className="back-btn"
-              onClick={() => navigate("/student")}
+              onClick={() => setPage("home")}
             >
               Back
             </button>

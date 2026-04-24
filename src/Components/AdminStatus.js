@@ -1,39 +1,75 @@
 import React from "react";
-import "../styles/admindesk.css";
-import { useNavigate } from "react-router-dom";
+import "../styles/a_statuscheck.css";
 
-function AdminStatus() {
+function AdminStatus({ setPage }) {
 
-  const navigate = useNavigate();
+  const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
 
-  const complaints = [
-    { id: 101, title: "WiFi Issue", status: "Pending" },
-    { id: 102, title: "Mess Food", status: "Resolved" },
-    { id: 103, title: "Water Problem", status: "In Progress" }
-  ];
+  // 🔥 UPDATE STATUS FUNCTION
+  const updateStatus = (id, newStatus) => {
+    const updated = complaints.map((c) =>
+      c.id === id ? { ...c, status: newStatus } : c
+    );
+
+    localStorage.setItem("complaints", JSON.stringify(updated));
+
+    // reload UI
+    window.location.reload();
+  };
 
   return (
-    <div className="admin-container">
+    <div className="status-container">
 
-      <h2>Complaint Status</h2>
+      <div className="status-box">
 
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Complaint</th>
-          <th>Status</th>
-        </tr>
+        <h2>Complaint Status</h2>
 
-        {complaints.map((c) => (
-          <tr key={c.id}>
-            <td>{c.id}</td>
-            <td>{c.title}</td>
-            <td>{c.status}</td>
-          </tr>
-        ))}
-      </table>
+        {complaints.length === 0 ? (
+          <p>No complaints found</p>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Complaint</th>
+                <th>Status</th>
+              </tr>
+            </thead>
 
-      <button onClick={() => navigate("/admin")}>Back</button>
+            <tbody>
+              {complaints.map((c) => (
+                <tr key={c.id}>
+                  <td>{c.id}</td>
+                  <td>{c.description}</td>
+
+                  {/* 🔥 STATUS DROPDOWN */}
+                  <td>
+                    <select
+                      value={c.status}
+                      onChange={(e) =>
+                        updateStatus(c.id, e.target.value)
+                      }
+                    >
+                      <option>Pending</option>
+                      <option>In Progress</option>
+                      <option>Resolved</option>
+                    </select>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        {/* BACK BUTTON */}
+        <button
+          className="back-btn"
+          onClick={() => setPage("home")}
+        >
+          Back
+        </button>
+
+      </div>
 
     </div>
   );

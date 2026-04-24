@@ -1,17 +1,13 @@
 import React from "react";
-import "../styles/statuscheck.css";
+import "../styles/s_statuscheck.css";
 import { useNavigate } from "react-router-dom";
 
-function StatusPage() {
+function StatusPage({setPage}) {
 
   const navigate = useNavigate();
 
-  // Sample complaint data
-  const complaints = [
-    { id: 101, title: "WiFi Issue", status: "Pending" },
-    { id: 102, title: "Mess Food", status: "Resolved" },
-    { id: 103, title: "Water Problem", status: "In Progress" }
-  ];
+  const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+
 
   return (
     <div className="status-container">
@@ -42,7 +38,7 @@ function StatusPage() {
         {/* Back Button */}
         <button
           className="back-btn"
-          onClick={() => navigate("/student")}
+          onClick={() => setPage("home")}
         >
           Back
         </button>

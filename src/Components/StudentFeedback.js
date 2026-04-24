@@ -1,15 +1,32 @@
 import React from "react";
-import "../styles/feedback.css";
+import "../styles/s_feedback.css";
 import { useNavigate } from "react-router-dom";
 
-function FeedbackPage() {
+function FeedbackPage({setPage}) {
 
   const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Feedback Submitted Successfully!");
+  e.preventDefault();
+
+  const newFeedback = {
+    id: Date.now(),
+    rating: e.target[0].value,
+    message: e.target[1].value
   };
+
+  const oldData = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+  oldData.push(newFeedback);
+
+  localStorage.setItem("feedbacks", JSON.stringify(oldData));
+
+  alert("Feedback Submitted Successfully!");
+
+  // optional reset
+  e.target.reset();
+};
 
   return (
     <div className="feedback-container">
@@ -47,7 +64,7 @@ function FeedbackPage() {
             <button
               type="button"
               className="back-btn"
-              onClick={() => navigate("/student")}
+              onClick={() => setPage("home")}
             >
               Back
             </button>

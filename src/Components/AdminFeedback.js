@@ -1,41 +1,56 @@
 import React from "react";
-import "../styles/admindesk.css";
-import { useNavigate } from "react-router-dom";
+import "../styles/a_feedback.css";
 
-function AdminFeedback() {
+function AdminFeedback({ setPage }) {
 
-  const navigate = useNavigate();
-
-  const feedbacks = [
-    { id: 1, rating: "⭐⭐⭐⭐", message: "Good service" },
-    { id: 2, rating: "⭐⭐⭐", message: "Average response" }
-  ];
+  // 🔥 get real feedback data (you must store it from student page)
+  const feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
 
   return (
-    <div className="admin-container">
+    <div className="feedback-container">
 
-      <h2>Feedback List</h2>
+      <div className="feedback-box">
 
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Rating</th>
-          <th>Message</th>
-        </tr>
+        <h2>Feedback List</h2>
 
-        {feedbacks.map((f) => (
-          <tr key={f.id}>
-            <td>{f.id}</td>
-            <td>{f.rating}</td>
-            <td>{f.message}</td>
-          </tr>
-        ))}
-      </table>
+        {feedbacks.length === 0 ? (
+          <p style={{ textAlign: "center" }}>No feedback available</p>
+        ) : (
+          <table className="feedback-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Rating</th>
+                <th>Message</th>
+              </tr>
+            </thead>
 
-      <button onClick={() => navigate("/admin")}>Back</button>
+            <tbody>
+              {feedbacks.map((f) => (
+                <tr key={f.id}>
+                  <td>{f.id}</td>
+                  <td>{f.rating}</td>
+                  <td>{f.message}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        {/* BACK BUTTON */}
+        <div className="btn-group">
+          <button
+            className="back-btn"
+            onClick={() => setPage("home")}
+          >
+            Back
+          </button>
+        </div>
+
+      </div>
 
     </div>
   );
 }
 
-export default AdminFeedback;
+export default AdminFeedback; 

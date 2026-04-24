@@ -13,7 +13,7 @@ function Navbar() {
       <div className="navbar-right">
         <h2 className="logo-text">
           <i className="fa-solid fa-clipboard-user"></i>
-          Complaint Issue & Management System
+          The Maharaja Sayajirao University of Baroda
         </h2>
       </div>
 
